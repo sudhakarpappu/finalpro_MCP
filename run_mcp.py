@@ -22,7 +22,8 @@ def commit_code_change():
         repo = Repo.clone_from(REPO_URL, REPO_DIR)
     else:
         repo = Repo(REPO_DIR)
-        repo.git.pull("--no-rebase")
+        repo.git.pull("--ff-only")
+
 
 
     file_full_path = os.path.join(REPO_DIR, file_path)
