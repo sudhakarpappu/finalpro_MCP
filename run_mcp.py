@@ -22,7 +22,8 @@ def commit_code_change():
         repo = Repo.clone_from(REPO_URL, REPO_DIR)
     else:
         repo = Repo(REPO_DIR)
-        repo.remotes.origin.pull()
+        repo.git.pull("--no-rebase")
+
 
     file_full_path = os.path.join(REPO_DIR, file_path)
     os.makedirs(os.path.dirname(file_full_path), exist_ok=True)
